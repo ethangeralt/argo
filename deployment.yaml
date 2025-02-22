@@ -15,18 +15,18 @@ spec:
     spec:
       containers:
         - name: my-app-container
-          image: nginx  # Example image; will be updated in the next deployment
+          image: httpd  # Example image; will be updated in the next deployment
           ports:
             - containerPort: 80
           readinessProbe:
             httpGet:
-              path: /
+              path: /helath
               port: 80
             initialDelaySeconds: 5
             periodSeconds: 5
           livenessProbe:
             httpGet:
-              path: /
+              path: /health
               port: 80
             initialDelaySeconds: 10
             periodSeconds: 10
